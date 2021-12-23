@@ -1,0 +1,7 @@
+.game-field-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    
+}
