@@ -9,7 +9,7 @@ import './App.css';
 
 function App(props) {
 
-  let [playerSelectedHand, setplayerSelectedHand] = useState();
+  // let [playerSelectedHand, setplayerSelectedHand] = useState();
 
   return (
     <div>
@@ -17,7 +17,8 @@ function App(props) {
       <Opponent/>
       <Score/>
       <Player/>
-      <Description selected={playerSelectedHand}/>
+      <Description /> 
+      {/* selected={playerSelectedHand} */}
     </div>
   );
 }
