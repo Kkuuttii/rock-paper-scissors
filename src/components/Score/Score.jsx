@@ -2,8 +2,10 @@ import React from "react";
 import "./Score.css"
 function Score (props) {
     return (
-      <div>
-        58 vs 42
+      <div className="score">
+        <div> 58 </div>
+        <div> vs </div>
+        <div> 42 </div>
       </div>
     );
   }

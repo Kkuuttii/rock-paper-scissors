@@ -2,8 +2,8 @@ import React from "react";
 import "./Description.css"
 function Description (props) {
     return (
-      <div>
-        У вас камень у противника камень: ничья.
+      <div className="description">
+        <p> You have a {props.selected}. The opponent has a stone. raw.</p>
       </div>
     );
   }

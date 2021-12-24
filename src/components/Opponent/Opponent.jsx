@@ -5,9 +5,9 @@ import { FaHandRock, FaHandScissors, FaHandPaper } from "react-icons/fa"
 function Opponent (props) {
     return (
       <div className = "game-field-wrapper">
-        <div> <FaHandRock/> </div>
-        <div> <FaHandScissors/> </div>
-        <div> <FaHandPaper/> </div>
+        <div className = "hand-button-wrapper"> <FaHandRock className="hands"/ > </div>
+        <div className = "hand-button-wrapper"> <FaHandScissors className="hands"/> </div>
+        <div className = "hand-button-wrapper"> <FaHandPaper className="hands"/> </div>
       </div>
     );
   }
