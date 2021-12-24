@@ -7,14 +7,17 @@ import Description from "../Description/Description";
 
 import './App.css';
 
-function App() {
+function App(props) {
+
+  let [playerSelectedHand, setplayerSelectedHand] = useState();
+
   return (
     <div>
       <Header/>
       <Opponent/>
       <Score/>
       <Player/>
-      <Description/>
+      <Description selected={playerSelectedHand}/>
     </div>
   );
 }
