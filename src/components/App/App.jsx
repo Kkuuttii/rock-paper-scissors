@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../Header/Header";
 import Player from "../Player/Player";
 import Score from "../Score/Score";
