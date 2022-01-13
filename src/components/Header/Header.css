@@ -1,4 +1,10 @@
 .header {
     font-size: 70px;
     font-family: 'Moo Lah Lah', cursive;
+    margin-bottom: 30px;
+
+     animation: pulsate 1.2s linear infinite;
 }
+   @keyframes pulsate {
+    50% { color: blueviolet; text-shadow: 0 -1px , 0 0 5px rgba(133, 133, 241, 0.39), 0 0 8px rgba(133, 133, 241, 0.39); }
+   }
