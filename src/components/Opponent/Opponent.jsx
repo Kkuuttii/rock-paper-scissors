@@ -18,11 +18,11 @@ function Opponent (props) {
     return (
       <div className = "game-field-wrapper">
 
-        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 1) ? "selected" : ""}`}> <FaHandRock className="hands"/ > </div>
+        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 'rock') ? "selected" : ""}`}> <FaHandRock className="hands"/ > </div>
 
-        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 2) ? "selected" : ""}`} > <FaHandScissors className="hands"/> </div>
+        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 'scissors') ? "selected" : ""}`} > <FaHandScissors className="hands"/> </div>
 
-        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 3) ? "selected" : ""}`}> <FaHandPaper className="hands"/> </div>
+        <div className = {`hand-button-wrapper ${(props.opponentSelectedHand === 'paper') ? "selected" : ""}`}> <FaHandPaper className="hands"/> </div>
         
       </div>
     );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Player.css";
 import { FaRegHandPaper, FaRegHandRock, FaRegHandScissors } from "react-icons/fa"
 
@@ -23,7 +23,7 @@ function Player(props) {
   //   }
 
   //   function selectScissorsHandler() {
-  //     props.onHandClick("scissor");
+  //     props.onHandClick("scissors");
   //     setSelectedScissors(true);
   //     setSelectedRock(false);
   //     setSelectedPaper(false);
@@ -48,8 +48,8 @@ function Player(props) {
         </div>
 
         <div 
-        className={`hand-button-wrapper player-pointer ${(selectedButton === "scissor") ? "selected" : ""} `} 
-        onClick={() => selected("scissor")}> 
+        className={`hand-button-wrapper player-pointer ${(selectedButton === "scissors") ? "selected" : ""} `} 
+        onClick={() => selected("scissors")}> 
           <FaRegHandScissors className="hands"/> 
         </div>
 

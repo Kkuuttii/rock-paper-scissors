@@ -7,7 +7,7 @@ import Description from "../Description/Description";
 
 import './App.css';
 
-function App(props) {
+function App() {
 
   let [playerSelectedHand, setPlayerSelectedHand] = useState(null);
   let [opponentSelectedHand, setOpponentSelectedHand] = useState(null);
@@ -21,13 +21,22 @@ function App(props) {
     return Math.floor(rand);
   }
 
-  function scoreCounter () {
-    if((playerSelectedHand === "rock" && opponentSelectedHand === 2) || (playerSelectedHand === "scissor" && opponentSelectedHand === 3) || (playerSelectedHand === "paper" && opponentSelectedHand === 1)) {
+  function scoreCounter (playerFigure, opponentFigure) {
+    if((playerFigure === "rock" && opponentFigure === "scissors") || (playerFigure === "scissors" && opponentFigure === "paper") || (playerFigure === "paper" && opponentFigure === "rock")) {
       setPlayerScore((prev) => prev + 1);
-    } else if ((playerSelectedHand === "rock" && opponentSelectedHand === 3)||(playerSelectedHand === "scissor" && opponentSelectedHand === 1)||(playerSelectedHand === "paper" && opponentSelectedHand === 2)) {
+    } else if ((playerFigure === "rock" && opponentFigure === "paper")||(playerFigure === "scissors" && opponentFigure === "rock")||(playerFigure === "paper" && opponentFigure === "scissors")) {
       setOpponentScore((prev) => prev + 1);
     } 
   }
+
+	// useEffect(() => {
+  //   if((playerSelectedHand === "rock" && opponentSelectedHand === "scissors") || (playerSelectedHand === "scissors" && opponentSelectedHand === "paper") || (playerSelectedHand === "paper" && opponentSelectedHand === "rock")) {
+  //     setPlayerScore((prev) => prev + 1);
+  //   } else if ((playerSelectedHand === "rock" && opponentSelectedHand === "paper")||(playerSelectedHand === "scissors" && opponentSelectedHand === "rock")||(playerSelectedHand === "paper" && opponentSelectedHand === "scissors")) {
+  //     setOpponentScore((prev) => prev + 1);
+  //   } 
+	// }, [playerSelectedHand, opponentSelectedHand]);
+
 //  function scoreCounter () расширенный вариант {
 //     if (playerSelectedHand === "rock") {
 //       if (opponentSelectedHand === 2) {
@@ -36,7 +45,7 @@ function App(props) {
 //         setOpponentScore((prev) => prev + 1);
 //       } 
       
-//     } else if (playerSelectedHand === "scissor") {
+//     } else if (playerSelectedHand === "scissors") {
 //         if (opponentSelectedHand === 1) {
 //           setOpponentScore((prev) => prev + 1);
 //         } else if (opponentSelectedHand === 3) {
@@ -51,6 +60,17 @@ function App(props) {
 //         } 
 //       }
 //   } 
+
+let getOpponentSelectedHand = () => {
+	const randomNumber = randomInteger(1, 3);
+	if (randomNumber === 1) {
+    return 'rock';
+  } else if (randomNumber === 2) {
+    return 'scissors';
+  } else if (randomNumber === 3) {
+    return 'paper';
+  }
+}
   
   return (
     <div>
@@ -58,9 +78,10 @@ function App(props) {
       <Opponent opponentSelectedHand={opponentSelectedHand} playerSelectedHand = {playerSelectedHand}/>
       <Score playerScore = {playerScore} opponentScore={opponentScore}/> 
       <Player onHandClick = {(value) => {
-        setPlayerSelectedHand(value); 
-        setOpponentSelectedHand(randomInteger(1, 3));
-        scoreCounter ();
+        setPlayerSelectedHand(value); // ОБНОВИ ЭТОТ СТЕЙТ ЗНАЧЕНИЕМ value (НУЖНО БУДЕТ ОБНОВИТЬ КОМПОНЕНТ)
+				let opponentFigure = getOpponentSelectedHand();
+        setOpponentSelectedHand(opponentFigure); // ОБНОВИ ЭТОТ СТЕЙТ ЗНАЧЕНИЕМ opponentFigure
+        scoreCounter(value, opponentFigure);
         }
       }/>
       <Description playerSelectedHand = {playerSelectedHand} opponentSelectedHand={opponentSelectedHand}/> 
