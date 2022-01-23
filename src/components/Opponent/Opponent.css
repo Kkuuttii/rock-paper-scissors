@@ -1,4 +1,4 @@
-.game-field-wrapper {
+/* .game-field-wrapper {
     width: 50%;
     display: flex;
     justify-content:space-between;
@@ -21,6 +21,34 @@
 }
 
 .selected{
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(133, 133, 241, 0.39) inset, 0 0 10px 4px rgba(133, 133, 241, 0.39);
+} */
+
+.game-field-wrapper {
+    max-width: 700px;
+    min-width: 256px;
+    display: flex;
+    justify-content:space-around;
+    flex-direction: row;
+    border-style: solid;
+    border-color: blueviolet transparent;
+
+}
+
+.hand-button-wrapper {
+    padding: 5px;
+    margin: 35px 0;
+    border-color: rgba(137, 43, 226, 0.219);
+    border-style: solid;
+    border-radius: 10%;
+}
+
+.hands {
+    font-size: 40px;
+}
+
+.selected {
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(133, 133, 241, 0.39) inset, 0 0 10px 4px rgba(133, 133, 241, 0.39);
 }

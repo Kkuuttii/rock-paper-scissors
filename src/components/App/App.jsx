@@ -9,11 +9,13 @@ import './App.css';
 
 function App() {
 
-  let [playerSelectedHand, setPlayerSelectedHand] = useState(null);
-  let [opponentSelectedHand, setOpponentSelectedHand] = useState(null);
+  let [playerSelectedHand, setPlayerSelectedHand] = useState('nothing');
+  let [opponentSelectedHand, setOpponentSelectedHand] = useState('nothing');
 
   let [playerScore, setPlayerScore] = useState(0);
   let [opponentScore, setOpponentScore] = useState(0);
+
+  let [whoWin, setWhoWin] = useState ('Raw :/');
 
   function randomInteger(min, max) {
     // случайное число от min до (max+1)
@@ -71,7 +73,17 @@ let getOpponentSelectedHand = () => {
     return 'paper';
   }
 }
-  
+  function decribeWhoWin (player, opponent) {
+    if (playerScore === opponentScore) {
+      setWhoWin ('Raw :/');
+    } else if (playerScore > opponentScore) {
+      setWhoWin ('You win :)');
+    } else if (playerScore < opponentScore) {
+      setWhoWin ('You lose :(');
+    }
+  }
+
+
   return (
     <div>
       <Header/>
@@ -82,9 +94,10 @@ let getOpponentSelectedHand = () => {
 				let opponentFigure = getOpponentSelectedHand();
         setOpponentSelectedHand(opponentFigure); // ОБНОВИ ЭТОТ СТЕЙТ ЗНАЧЕНИЕМ opponentFigure
         scoreCounter(value, opponentFigure);
+        decribeWhoWin (playerScore, opponentScore)
         }
       }/>
-      <Description playerSelectedHand = {playerSelectedHand} opponentSelectedHand={opponentSelectedHand}/> 
+      <Description playerSelectedHand = {playerSelectedHand} opponentSelectedHand={opponentSelectedHand} playerScore = {playerScore} opponentScore={opponentScore} whoWin={whoWin}/> 
     </div>
   );
 }
